@@ -42,5 +42,5 @@ runcmd:
   - microk8s config > /home/manage/.kube/config
   - usermod -a -G microk8s manage
   - usermod -a -G docker manage
-  - chown -f -R manage /home/manage/.kube    
+  - chown -f -R manage /home/manage/.bash_aliases    
 
