@@ -47,4 +47,6 @@ runcmd:
   - chown -R manage:manage .kube/
   - chown -R manage:manage .bash_aliases
   - chown -f -R manage /home/manage/.bash_aliases    
+  - usermod -a -G microk8s manage
+  - chown -f -R manage ~/.kube
 
