@@ -1,5 +1,7 @@
 .PHONY: run
-image:
+download:
+	wget http://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
+disk_image:
 	qemu-img convert -f qcow2 -O raw focal-server-cloudimg-amd64.img focal-server-cloudimg-amd64.raw
 vm_image:
 	qemu-img create -b focal-server-cloudimg-amd64.img -f qcow2 -F qcow2 hal9000.img 10G
