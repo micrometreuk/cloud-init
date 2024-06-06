@@ -2,7 +2,7 @@
 users:
   - name: ubuntu
     ssh_authorized_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyY7Cs1kmU/ZlYAl0TVsqrlZbHZL29AY60GRlku/vuYljcta6MYR45hhOPR2aSmebijRIvANd4yzBaA0J2Si5vuLhOLxokyPBlLhmBkzucXLBmqbo1L1efcyZNaB5V84xhTwPDk8fnN9QCNuvLkpcmPD2RV3D9xetqK2wpDuS1L3Yq8dntfCOKEBhA4E3so44vpWCNRzRGdfkxpHH9ssKvi8w5sHahuTe7BuMAjY6oP6b4awX8OGkrwkRPMphjU8ahS47sAg0eN6Bsqsb38S18UKtIz+ezldLnQTCv/odcHrBSUjCaZ+UtAgBfvchVGrbxPbEYyPFUWFeCHFYE+CkqLXsLlQIcFPsdy7CvxzdBkWA5keRIfi6lL3uNfC2pRcXI9TsfKEsd6n1k4JDMiqVUlqQWwsqNl81DpICUNWlyikJI8O5P2R50eVc0j8hzt5pB38/QQTkO0/u1QLr5xxqJXSYkY4Cy6nx8UI7N8w/voJrSAfHBAJ8SQdKFOxSK1vE= dell@atitude
+      - ssh-rsa 
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     groups: sudo
     shell: /bin/bash
