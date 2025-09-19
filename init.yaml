@@ -1,6 +1,6 @@
 #cloud-config
 users:
-  - name: manage
+  - name: ubuntu
     ssh-authorized-keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCv60WjxoM39LgPDbiW7ne3gu18q0NIVv0RE6rDLNal1quXZ3nqAlANpl5qmhDQ+GS/sOtygSG4/9aiOA4vXO54k1mHWL2irjuB9XbXr00+44vSd2q/vtXdGXhdSMTf4/XK17fjKSG/9y3yD6nml6q9XgQxx9Vf/IkaKdlK0hbC1ds0+8h83PTb9dF3L7hf3Ch/ghvj5++tWJFdFeG+VI7EDuKNA4zL8C5FdYYWFA88YAmM8ndjA5qCjZXIIeZvZ/z9Kpy6DL0QZ8T3NsxRKapEU3nyiIuEAmn8fbnosWcsovw0IS1Hz6HsjYo4bu/gA82LWt3sdRUBZ/7ZsVD3ELip user@example.com
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
@@ -18,35 +18,4 @@ packages:
   - git
   - vim
 runcmd:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
   - apt-get update -y
-  - apt-get install -y docker-ce docker-ce-cli
-  - systemctl start docker
-  - systemctl enable docker
-  - curl -SL https://github.com/docker/compose/releases/download/v2.13.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-  - chmod +x /usr/local/bin/docker-compose
-  - curl -L https://raw.githubusercontent.com/docker/compose/1.20.0/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
-  - docker pull einlinuus/testing:node
-  - docker run -d -p 80:80 einlinuus/testing:node
-  - /usr/bin/sleep 10
-  - /usr/bin/docker pull tutum/hello-world
-  - /usr/bin/docker run -d -p 8080:80 --restart=always -e SOME_VAR="SOME VALUE" tutum/hello-world
-  - curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-  - echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-  - apt-get update -y
-  - apt-get install -y kubectl 
-  - echo 'source <(kubectl completion bash)' >>/home/manage/.bashrc
-  - echo "alias kubectl='microk8s kubectl'" >> /home/manage/.bash_aliases
-  - snap install microk8s --classic
-  - microk8s enable dns hostpath-storage
-  - mkdir /home/manage/.kube
-  - microk8s config > /home/manage/.kube/config
-  - usermod -a -G microk8s manage
-  - usermod -a -G docker manage
-  - chown -R manage:manage .kube/
-  - chown -R manage:manage .bash_aliases
-  - chown -f -R manage /home/manage/.bash_aliases    
-  - usermod -a -G microk8s manage
-  - chown -f -R manage ~/.kube
-
